@@ -1,7 +1,10 @@
 const express= require("express");
+const render = require('xlsx');
+
 require("./db/conn");
 const Petinfo = require("./models/pets");
 const app = express();
+const filePath= render.readFile(require('path').resolve(__dirname, "../PetsInfo.xlsx"));
 const port = process.env.PORT || 3000;
 app.use(express.json());
 app.get("/",(req,res)=> {
@@ -9,11 +12,13 @@ app.get("/",(req,res)=> {
 })
 
 app.post("/pet", async(req,res)=>{
-
     try{
-        console.log(req.body);
-        const user =new Petinfo(req.body);
-        const createPet=await user.save();
+        // console.log("called");
+        const posts=[];
+        const worksheet = filePath.Sheets[filePath.SheetNames[0]];
+        const sheetData= render.utils.sheet_to_json(worksheet);
+        console.log(sheetData);
+        const createPet=await Petinfo.insertMany(sheetData);
         res.status(201).send(createPet);
     }catch(e)
     {
