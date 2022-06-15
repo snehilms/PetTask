@@ -14,7 +14,9 @@ The libraries and modules used for the app are
 1. Express
 1. Mongoose
 1. Xlsx 
-
+For Running the application:
+Clone the repo and run the application with either mongoose or mongo compass 
+: npm run dev
 Implementation: The different api’s are implemented according to the features mentioned above.
 
 The POST api  takes a PetsInfo.xlsx file after which the individual sheet is parsed using the filepath and the data from the sheets is stored in an array which is then pushed using the insertMany function in the defined mongoose model “Petinfo”, and these json’s are added in the mongodb database named “Pets”.
