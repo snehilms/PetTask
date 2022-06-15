@@ -16,9 +16,11 @@ The libraries and modules used for the app are
 1. Xlsx 
 
 For Running the application:
-Clone the repo and run the application with either mongoose or mongo compass 
+Clone the repo and run the application 
 
 **npm run dev**
+
+Mongodb or Mongocompass must be installed as database.
 
 Implementation: The different api’s are implemented according to the features mentioned above.
 
