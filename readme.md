@@ -17,7 +17,8 @@ The libraries and modules used for the app are
 
 For Running the application:
 Clone the repo and run the application with either mongoose or mongo compass 
-: npm run dev
+
+npm run dev
 
 Implementation: The different api’s are implemented according to the features mentioned above.
 
